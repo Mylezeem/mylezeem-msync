@@ -1,0 +1,23 @@
+# Managed by modulesync
+# Configs https://github.com/Mylezeem/mylezeem-msync
+#
+---
+language: ruby
+bundler_args: --without system_tests
+script: <%= @configs['script'] %>
+sudo: false
+matrix:
+  fast_finish: true
+  include:
+<% @configs['includes'].each do |include| -%>
+  - rvm: <%= include['rvm'] %>
+    env: <%= include['env'] %>
+<% end -%>
+<% if @configs['extras'] -%>
+<%   @configs['extras'].each do |extra| -%>
+  - rvm: <%= extra['rvm'] %>
+    env: <%= extra['env'] %>
+<%   end -%>
+<% end -%>
+notifications:
+  email: false

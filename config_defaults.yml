@@ -1,0 +1,36 @@
+---
+.travis.yml:
+  script: "\"bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'\""
+  includes:
+  - rvm: 1.9.3
+    env: PUPPET_GEM_VERSION="~> 3.4"
+  - rvm: 2.0.0
+    env: PUPPET_GEM_VERSION="~> 3.4"
+  - rvm: 2.0.0
+    env: PUPPET_GEM_VERSION="~> 3.7"
+Gemfile:
+  required:
+    ':development, :unit_tests':
+      - gem: puppetlabs_spec_helper
+      - gem: rspec-puppet
+        version: '2.0.1'
+      - gem: puppet-blacksmith
+      - gem: puppet-lint-param-docs
+      - gem: puppet-lint-absolute_classname-check
+      - gem: puppet-lint-absolute_template_path
+      - gem: puppet-lint-trailing_newline-check
+      - gem: puppet-lint-unquoted_string-check
+      - gem: puppet-lint-leading_zero-check
+      - gem: puppet-lint-variable_contains_upcase
+      - gem: puppet-lint-numericvariable
+      - gem: puppet-lint-file_ensure-check
+      - gem: puppet-lint-trailing_comma-check
+      - gem: metadata-json-lint
+      - gem: puppet_facts
+      - gem: json
+    ':system_tests':
+      - gem: beaker-rspec
+Rakefile:
+  default_disabled_lint_checks:
+  - 'disable_80chars'
+  forgename: yguenane
