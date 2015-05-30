@@ -1,2 +1,11 @@
 ---
+# Repositories
+  - puppet-mariadbrepo
+  - puppet-rdorepo
+  - puppet-repoforge
+# Applications
+  - puppet-authconfig
+  - puppet-mediawiki
+  - puppet-pentaho
+  - puppet-mailman
 
