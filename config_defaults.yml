@@ -19,8 +19,8 @@ Gemfile:
   required:
     ':development, :unit_tests':
       - gem: puppetlabs_spec_helper
-      - gem: rspec-puppet
-        version: '2.0.1'
+      - gem: rspec-core
+        version: '3.1.7'
       - gem: puppet-blacksmith
       - gem: puppet-lint-param-docs
       - gem: puppet-lint-absolute_classname-check
