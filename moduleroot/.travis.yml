@@ -19,5 +19,10 @@ matrix:
     env: <%= extra['env'] %>
 <%   end -%>
 <% end -%>
+  allow_failures:
+<% @configs['allow_failures'].each do |allowed_failure| -%>
+  - rvm: <%= allowed_failure['rvm'] %>
+    env: <%= allowed_failure['env'] %>
+<% end -%>
 notifications:
   email: false
